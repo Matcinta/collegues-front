@@ -1,0 +1,34 @@
+<div class="card mb-4 shadow-sm">
+    <div class="row card-body">
+        <div class="col-sm-4">
+            <div class="d-flex justify-content-around">
+                <div class="element">
+                    <img src="{{col.photoUrl}}" alt="photo Melle Rose" class="img-fluid shadow-sm" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <dl class="row">
+                <dt class="col-sm-5">Matricule:</dt>
+                <dd class="col-sm-7">{{col.matricule}}</dd>
+                <dt class="col-sm-5">Nom: </dt>
+                <dd class="col-sm-7">{{col.nom}}</dd>
+                <dt class="col-sm-5">Prenom:</dt>
+                <dd class="col-sm-7">{{col.prenom}}</dd>
+                <dt class="col-sm-5">Date de naissance:</dt>
+                <dd class="col-sm-7">{{col.dateDeNaissance}}</dd>
+                <dt class="col-sm-5">Email:</dt>
+                <dd class="col-sm-7">{{col.email}}</dd>
+            </dl>
+            <div class="row">
+                <div class="col-sm-5">
+                    <a href="c:url value= '/collaborateurs/editer'/>">Créer un nouveau collaborateur</a>
+                </div>
+                <div class="col-sm-7">
+                    <a href="c:url value='/collaborateurs/editer'/>" class="btn btn-info" role="button"
+                        aria-pressed="true">Modifier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
