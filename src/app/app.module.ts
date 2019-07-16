@@ -1,6 +1,7 @@
 import {BrowserModule } from '@angular/platform-browser';
 import {NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue/collegue.component';
@@ -14,7 +15,9 @@ import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-pa
     AppRechercheCollegueParNomComponent,
   ],
   imports: [
-    BrowserModule, NgbModule
+    BrowserModule,
+    NgbModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
