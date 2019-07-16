@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {matriculesMock} from '../mock/matricules.mock';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-recherche-collegue-par-nom',
@@ -9,10 +9,11 @@ import {matriculesMock} from '../mock/matricules.mock';
 export class AppRechercheCollegueParNomComponent implements OnInit {
 
   @Input() mat:string;
-
-  constructor() { }
   matricules = [];
 
+  constructor(private srv: DataService) { 
+  
+  }
 
   search: boolean = false;
   editer(){
@@ -20,8 +21,9 @@ export class AppRechercheCollegueParNomComponent implements OnInit {
   }
 
  rechercher(){
-    this.matricules = matriculesMock;
+    this.matricules = this.srv.rechercherParNom();
  }
+ 
 
   ngOnInit() {
   }

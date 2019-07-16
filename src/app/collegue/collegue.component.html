@@ -1,5 +1,5 @@
-<div class="card mb-4 shadow-sm">
-    <div class="row card-body" style="height: 100%">
+<div class="card mb-4 shadow-sm" style="height: 100%">
+    <div class="row card-body">
         <div class="col-sm-4">
             <div class="d-flex justify-content-around">
                 <div class="element">
@@ -22,36 +22,42 @@
                     <input type="text" class="form-control">
                 </div>
                 <ng-template #elseBlock2>
-                        <dd class="col-sm-7">{{col.email}}</dd>
+                    <dd class="col-sm-7">{{col.email}}</dd>
                 </ng-template>
                 <dt class="col-sm-5">Photo URL:</dt>
                 <div *ngIf="modeEdition; else elseBlock3">
-                        <input type="text" class="form-control">
-                    </div>
-                    <ng-template #elseBlock3>
-                            <dd class="col-sm-7">{{col.photoUrl}}</dd>
-                    </ng-template>
-                
-            </dl>
-            <div class="row">
-                <div class="col-sm-5">
-                    <div *ngIf="modeEdition; else elseBlock">
-                            <button class="btn btn-info">Valider</button>
-
-                    </div>
-                    <ng-template #elseBlock>
-                        <a href="#" (click)="editer()">Créer un nouveau collaborateur</a>
-                        <div class="col-sm-7">
-                            <button (click)="editer()" class="btn btn-info">Modifier</button>
-                        </div>
-                        
-                    </ng-template>
-                    
+                    <input type="text" class="form-control">
                 </div>
-                
-                    
+                <ng-template #elseBlock3>
+                    <dd class="col-sm-7">{{col.photoUrl}}</dd>
+                </ng-template>
+
+            </dl>
+
+            
+                <div *ngIf="modeEdition; else elseBlock">
+
+                    <button class="btn btn-info">Valider</button>
+
                 </div>
          
+        
+                <ng-template #elseBlock>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <a href="#" (click)="editer()">Créer un nouveau collaborateur</a>
+                        </div>
+                        <div class="col-sm-5">
+                            <button (click)="editer()" class="btn btn-info">Modifier</button>
+                        </div>
+
+                    </div>
+
+
+                </ng-template>
+        
+
+
         </div>
     </div>
 </div>
