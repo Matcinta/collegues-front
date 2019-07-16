@@ -12,13 +12,14 @@ export class CollegueComponent implements OnInit {
 
   constructor() { }
 
-  modifier(){
-    console.log("Modification du collègue");
-  }
 
-  creer(){
-    console.log("Création d'un nouveau collègue");
-  }
+  modeEdition:boolean = false;
+  
+editer(){
+  this.modeEdition = !this.modeEdition;
+}
+  
+
 
   ngOnInit() {
   }

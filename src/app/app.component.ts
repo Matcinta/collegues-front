@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
 
   collegues = collegueMock;
 
+  
+
   ngOnInit(){
 
   }

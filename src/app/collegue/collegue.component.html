@@ -12,22 +12,46 @@
                 <dt class="col-sm-5">Matricule:</dt>
                 <dd class="col-sm-7">{{col.matricule}}</dd>
                 <dt class="col-sm-5">Nom: </dt>
-                <dd class="col-sm-7">{{col.nom}}</dd>
+                <dd class="col-sm-7">{{col.nom | uppercase}}</dd>
                 <dt class="col-sm-5">Prenom:</dt>
                 <dd class="col-sm-7">{{col.prenom}}</dd>
                 <dt class="col-sm-5">Date de naissance:</dt>
-                <dd class="col-sm-7">{{col.dateDeNaissance}}</dd>
+                <dd class="col-sm-7">{{col.dateDeNaissance | date: 'dd/MM/yyyy'}}</dd>
                 <dt class="col-sm-5">Email:</dt>
-                <dd class="col-sm-7">{{col.email}}</dd>
+                <div *ngIf="modeEdition; else elseBlock2">
+                    <input type="text" class="form-control">
+                </div>
+                <ng-template #elseBlock2>
+                        <dd class="col-sm-7">{{col.email}}</dd>
+                </ng-template>
+                <dt class="col-sm-5">Photo URL:</dt>
+                <div *ngIf="modeEdition; else elseBlock3">
+                        <input type="text" class="form-control">
+                    </div>
+                    <ng-template #elseBlock3>
+                            <dd class="col-sm-7">{{col.photoUrl}}</dd>
+                    </ng-template>
+                
             </dl>
             <div class="row">
                 <div class="col-sm-5">
-                    <a href="#" (click)="creer()">Créer un nouveau collaborateur</a>
+                    <div *ngIf="modeEdition; else elseBlock">
+                            <button class="btn btn-info">Valider</button>
+
+                    </div>
+                    <ng-template #elseBlock>
+                        <a href="#" (click)="editer()">Créer un nouveau collaborateur</a>
+                        <div class="col-sm-7">
+                            <button (click)="editer()" class="btn btn-info">Modifier</button>
+                        </div>
+                        
+                    </ng-template>
+                    
                 </div>
-                <div class="col-sm-7">
-                    <button (click)="modifier()" class="btn btn-info">Modifier</button>
+                
+                    
                 </div>
-            </div>
+         
         </div>
     </div>
 </div>
