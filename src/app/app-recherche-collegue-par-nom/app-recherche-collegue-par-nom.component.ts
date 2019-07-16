@@ -19,7 +19,7 @@ export class AppRechercheCollegueParNomComponent implements OnInit {
     this.search = !this.search;
   }
 
- rechercher(name:string){
+ rechercher(){
     this.matricules = matriculesMock;
  }
 
