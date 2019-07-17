@@ -10,41 +10,38 @@ import {environment} from '../../environments/environment';
 })
 export class DataService {
  URL_BACKEND = environment.backendUrl;
- collegues:Collegue[] = [];
-  
- private subCollegueSelectionne = new Subject<Collegue>();
+ 
+constructor(private httpClient: HttpClient) { }
 
- publier(unCollegue: Collegue){
+subCollegueSelectionne = new Subject<Collegue>();
+
+publier(unCollegue: Collegue){
    this.subCollegueSelectionne.next(unCollegue);
- }
+}
 
- abonnement(): Observable<Collegue>{
+abonnement(): Observable<Collegue>{
    return this.subCollegueSelectionne.asObservable();
- }
+}
 
-  constructor(private httpClient: HttpClient) { }
+  
 
-  rechercherParNom(nom:string): Observable<Collegue[]>  {
+rechercherParNom(nom:string): Observable<Collegue[]>  {
     return this.httpClient
-    .get<Collegue[]>(this.URL_BACKEND+'/collegue?nom='+nom)
-    .pipe(
-      map(listeColleguesDuServeur =>
-        listeColleguesDuServeur.filter(unCollegue => unCollegue.nom === nom)
-        ),
-        map(listeColleguesDuServeurFiltre => listeColleguesDuServeurFiltre.map(unCollegue => {
-          unCollegue.nom === unCollegue.nom;
-          return unCollegue;
-        }))
-    ); 
-  }
+    .get<Collegue[]>(this.URL_BACKEND+'/collegue?nom='+nom);
+}
 
-  recupererCollegueCourant(): Observable<Collegue> {
+rechercherParMatricule(matricule:string): Observable<Collegue>  {
+  return this.httpClient
+  .get<Collegue>(this.URL_BACKEND+'/collegue/'+matricule);
+}
+
+recupererCollegueCourant(): Observable<Collegue> {
     
     return null;
-  }
+}
 
-  ajouterCollegue(unCollegue: Collegue){
-    this.collegues.push(unCollegue);
-  }
+ajouterCollegue(unCollegue: Collegue){
+    //this.collegues.push(unCollegue);
+}
 
 }

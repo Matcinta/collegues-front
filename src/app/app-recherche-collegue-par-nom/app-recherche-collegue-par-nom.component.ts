@@ -11,7 +11,7 @@ export class AppRechercheCollegueParNomComponent implements OnInit {
 
 
   @Input() col:Collegue;
-  collegues = [];
+  matricules = [];
 
   constructor(private srv: DataService) { 
   
@@ -23,10 +23,14 @@ export class AppRechercheCollegueParNomComponent implements OnInit {
   }
 
  rechercher(nom:string){
-    this.srv.rechercherParNom(nom);
+    this.srv.rechercherParNom(nom)
+    .subscribe(matricules => this.matricules = matricules);
  }
  
-
+getCollegue(matricule:string){
+  this.srv.rechercherParMatricule(matricule)
+  .subscribe(collegue => this.srv.publier(collegue));
+}
   ngOnInit() {
   }
 

@@ -5,14 +5,14 @@
             Recherche par nom
         </div>
         <div class="col-sm-4">
-            <input type="search" class="form-control" placeholder="Enter search string">
+            <input #saisie type="search" class="form-control" placeholder="Saisir le nom d'un collègue">
         </div>
         <div class="col-sm-4">
-            <button (click)="rechercher()" class="btn btn-info">Rechercher</button>
+            <button (click)="rechercher(saisie.value)" class="btn btn-info">Rechercher</button>
         </div>
-        <div *ngIf="collegues.length>0">
+        <div *ngIf="matricules.length>0">
             <ul>
-                <li *ngFor="let collegue of collegues">{{collegue}}</li>
+                <li (click)="getCollegue(matricule)" *ngFor="let matricule of matricules">{{matricule}}</li>
             </ul>
 
         </div>

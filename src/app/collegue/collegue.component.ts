@@ -1,18 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-collegue',
   templateUrl: './collegue.component.html',
   styleUrls: ['./collegue.component.css']
 })
-export class CollegueComponent implements OnInit {
+export class CollegueComponent implements OnInit, OnDestroy {
 
-  @Input() col: Collegue;
-  collegue: Collegue;
+  @Input()
+  col: Collegue;
+  
+  actionSub: Subscription
 
-  constructor(private srv: DataService) { }
+  constructor(private srv: DataService) {
+    
+   }
 
 
   modeEdition: boolean = false;
@@ -21,11 +26,15 @@ export class CollegueComponent implements OnInit {
     this.modeEdition = !this.modeEdition;
   }
 
-
-  /* recuperer() {
-    this.collegue = this.srv.recupererCollegueCourant();
-  }*/
   ngOnInit() {
+    this.actionSub = this.srv.subCollegueSelectionne.subscribe(
+      (collegue: Collegue) => {
+        this.col = collegue;
+      });   
+  }
+
+  ngOnDestroy(){
+    this.actionSub.unsubscribe();
   }
 
 }
