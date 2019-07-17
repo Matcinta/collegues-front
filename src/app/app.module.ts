@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue/collegue.component';
 import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-par-nom/app-recherche-collegue-par-nom.component';
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-pa
     AppComponent,
     CollegueComponent,
     AppRechercheCollegueParNomComponent,
+    DetailCollegueComponent,
   ],
   imports: [
     BrowserModule,

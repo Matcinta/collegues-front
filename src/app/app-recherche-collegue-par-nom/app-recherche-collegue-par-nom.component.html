@@ -5,14 +5,14 @@
             Recherche par nom
         </div>
         <div class="col-sm-4">
-            <input type="text" class="form-control">
+            <input type="search" class="form-control" placeholder="Enter search string">
         </div>
         <div class="col-sm-4">
             <button (click)="rechercher()" class="btn btn-info">Rechercher</button>
         </div>
-        <div *ngIf="matricules.length>0">
+        <div *ngIf="collegues.length>0">
             <ul>
-                <li *ngFor="let matricule of matricules">{{matricule}}</li>
+                <li *ngFor="let collegue of collegues">{{collegue}}</li>
             </ul>
 
         </div>

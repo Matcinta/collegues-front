@@ -22,9 +22,9 @@ export class CollegueComponent implements OnInit {
   }
 
 
-  recuperer() {
+  /* recuperer() {
     this.collegue = this.srv.recupererCollegueCourant();
-  }
+  }*/
   ngOnInit() {
   }
 
