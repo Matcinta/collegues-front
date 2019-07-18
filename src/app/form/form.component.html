@@ -1,13 +1,27 @@
 <form (ngSubmit)="submit()">
-    <label>Email</label>
-    <input type="text" name="email" [(ngModel)]="col.email" #email= "ngModel" required class="form-control">
-    <p *ngIf="email.dirty && email.invalid">L'email est invalide</p>
+        <dl class="row">
+                <dt class="col-sm-5">Matricule:</dt>
+                <dd class="col-sm-7">{{col.matricule}}</dd>
+                <dt class="col-sm-5">Nom: </dt>
+                <dd class="col-sm-7">{{col.nom | uppercase}}</dd>
+                <dt class="col-sm-5">Prenom:</dt>
+                <dd class="col-sm-7">{{col.prenom}}</dd>
+                <dt class="col-sm-5">Date de naissance:</dt>
+                <dd class="col-sm-7">{{col.dateDeNaissance | date: 'dd/MM/yyyy'}}</dd>
+                <dt class="col-sm-5">Email:</dt>
+                <dd class="col-sm-7">
+                        <input type="email" name="email" [(ngModel)]="col.email" #email= "ngModel" required class="form-control">
+                        <p *ngIf="email.dirty && email.invalid">L'email est invalide</p>
+                </dd>
+                <dt class="col-sm-5">Photo URL:</dt>
+                <dd class="col-sm-7">
+                        <input type="url" name="photoUrl" [(ngModel)]="col.photoUrl" #photoUrl= "ngModel" required minlength="7" class="form-control" placeholder="http://example.com" pattern="http://.*">
+                        <p *ngIf="photoUrl.dirty && photoUrl.invalid">L'adresse url de la photo est invalide</p>
+                </dd>
+            
+   
 
-    <label>Photo Url</label>
-    <input type="text" name="photoUrl" [(ngModel)]="col.photoUrl" #photoUrl= "ngModel" required minlength="7" class="form-control">
-    <p *ngIf="photoUrl.dirty && photoUrl.invalid">L'adresse url de la photo est invalide</p>
-
-    {{ col | json}}
 
     <button type="submit" class="btn btn-info">Valider</button>
+</dl>
 </form>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
+import { collectExternalReferences } from '@angular/compiler';
 
 @Component({
   selector: 'app-form',
@@ -9,8 +10,9 @@ import { DataService } from '../services/data.service';
 })
 export class FormComponent implements OnInit {
 
-  col = new Collegue();
+  @Input() col: Collegue;
   @Input() matricule: string;
+  
   constructor(private srv: DataService) { }
 
   submit(){
