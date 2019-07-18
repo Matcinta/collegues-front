@@ -9,7 +9,7 @@ constructor (
     public nom?: string,
     public prenom?:string,
     public email?: string,
-    public dateDeNaissance?:string,
+    public dateDeNaissance?:Date,
     public photoUrl?: string){
 
 }

@@ -46,15 +46,17 @@ modifierCollegue(matricule:string, email:string, photoUrl: string) : Observable<
   );
 }
 
-// ajouterCollegue(nom: string, prenom: string) : Observable<Collegue>{
-//   return this.httpClient
-//   .post<Collegue>(this.URL_BACKEND+'/collegue/', 
-//   {
-//     collegue.nom: nom;
-//     email: ,
-//     photoUrl: 
-//   }
-//   );
-// }
+ajouterCollegue(nom: string, prenom: string, email: string, dateDeNaissance: Date, photoUrl: string) : Observable<Collegue>{
+  return this.httpClient
+  .post<Collegue>(this.URL_BACKEND+'/collegue/', 
+  {
+    "nom": nom,
+    "prenom": prenom,
+    "email": email,
+    "dateDeNaissance": dateDeNaissance,
+    "photoUrl": photoUrl
+  }
+  );
+}
 
 }

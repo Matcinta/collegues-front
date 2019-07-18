@@ -17,6 +17,7 @@ export class CollegueComponent implements OnInit, OnDestroy {
   actionSub: Subscription
 
   modeEdition: boolean = false;
+  modeCreation: boolean = false;
 
   constructor(private srv: DataService) {
     
@@ -30,6 +31,7 @@ export class CollegueComponent implements OnInit, OnDestroy {
       (collegue: Collegue) => {
         this.col = collegue;
         this.modeEdition=false;
+        this.modeCreation=false;
       });   
   }
 
@@ -38,16 +40,8 @@ export class CollegueComponent implements OnInit, OnDestroy {
   }
 
   creer(){
-    console.log('ok');
+    this.modeCreation = !this.modeCreation;
   }
-
-  /*
-  updateCollegue(matricule:string){
-    this.srv.modifierCollegue(matricule).subscribe(collegue => this.srv.publier(collegue));
-  }
-  */
-
-  
 
   ngOnDestroy(){
     this.actionSub.unsubscribe();

@@ -1,53 +1,62 @@
 <div class="card mb-4 shadow-sm" style="height: 100%">
     <div class="row card-body">
+        <div *ngIf="modeCreation">
+            <app-form-creer-collegue></app-form-creer-collegue>
+        </div>
         <div class="col-sm-4">
-            <div class="d-flex justify-content-around">
-                <div class="element">
-                    <img src="{{col.photoUrl}}" class="img-fluid shadow-sm" />
+            <div *ngIf="!modeCreation">
+                <div class="d-flex justify-content-around">
+                    <div class="element">
+                        <img src="{{col.photoUrl}}" class="img-fluid shadow-sm" />
+                    </div>
                 </div>
             </div>
+
         </div>
         <div class="col-sm-8">
-            
 
-                <ng-template #elseBlock2>
-                        <dl class="row">
-                    <dt class="col-sm-5">Matricule:</dt>
-                    <dd class="col-sm-7">{{col.matricule}}</dd>
-                    <dt class="col-sm-5">Nom: </dt>
-                    <dd class="col-sm-7">{{col.nom | uppercase}}</dd>
-                    <dt class="col-sm-5">Prenom:</dt>
-                    <dd class="col-sm-7">{{col.prenom}}</dd>
-                    <dt class="col-sm-5">Date de naissance:</dt>
-                    <dd class="col-sm-7">{{col.dateDeNaissance | date: 'dd/MM/yyyy'}}</dd>
-                    <dt class="col-sm-5">Email:</dt>
-                    <dd class="col-sm-7">{{col.email}}</dd>
-                    <dt class="col-sm-5">Photo URL:</dt>
-                    <dd class="col-sm-7">{{col.photoUrl}}</dd>
-                </dl>
-                </ng-template>
-                
-            
+
+            <ng-template #elseBlock2>
+                <div *ngIf="!modeCreation">
+                    <dl class="row">
+                        <dt class="col-sm-5">Matricule:</dt>
+                        <dd class="col-sm-7">{{col.matricule}}</dd>
+                        <dt class="col-sm-5">Nom: </dt>
+                        <dd class="col-sm-7">{{col.nom | uppercase}}</dd>
+                        <dt class="col-sm-5">Prenom:</dt>
+                        <dd class="col-sm-7">{{col.prenom}}</dd>
+                        <dt class="col-sm-5">Date de naissance:</dt>
+                        <dd class="col-sm-7">{{col.dateDeNaissance | date: 'dd/MM/yyyy'}}</dd>
+                        <dt class="col-sm-5">Email:</dt>
+                        <dd class="col-sm-7">{{col.email}}</dd>
+                        <dt class="col-sm-5">Photo URL:</dt>
+                        <dd class="col-sm-7">{{col.photoUrl}}</dd>
+                    </dl>
+                </div>
+            </ng-template>
+
+
+
             <div *ngIf="modeEdition; else elseBlock2">
-                    <app-form [matricule]="col.matricule" [col]= "col"></app-form>
+                <app-form [matricule]="col.matricule" [col]="col"></app-form>
 
             </div>
-        
-                <div *ngIf="!modeEdition">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <a href="#" (click)="creer()">Créer un nouveau collaborateur</a>
 
-                        </div>
-                        <div class="col-sm-5">
-                            <button (click)="editer()" class="btn btn-info">Modifier</button>
-                        </div>
+            <div *ngIf="!modeEdition && !modeCreation">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <a href="#" (click)="creer()">Créer un nouveau collaborateur</a>
 
                     </div>
-
+                    <div class="col-sm-5">
+                        <button (click)="editer()" class="btn btn-info">Modifier</button>
+                    </div>
 
                 </div>
-        
+
+
+            </div>
+
 
 
         </div>
