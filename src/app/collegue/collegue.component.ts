@@ -11,30 +11,48 @@ import { Subscription } from 'rxjs';
 export class CollegueComponent implements OnInit, OnDestroy {
 
   @Input()
-  col: Collegue;
+  col: Collegue = new Collegue();
+  
   
   actionSub: Subscription
+
+  modeEdition: boolean = false;
 
   constructor(private srv: DataService) {
     
    }
 
 
-  modeEdition: boolean = false;
 
-  editer() {
-    this.modeEdition = !this.modeEdition;
-  }
 
   ngOnInit() {
     this.actionSub = this.srv.subCollegueSelectionne.subscribe(
       (collegue: Collegue) => {
         this.col = collegue;
+        this.modeEdition=false;
       });   
   }
+
+  editer() {
+    this.modeEdition = !this.modeEdition;
+  }
+
+  creer(){
+    console.log('ok');
+  }
+
+  /*
+  updateCollegue(matricule:string){
+    this.srv.modifierCollegue(matricule).subscribe(collegue => this.srv.publier(collegue));
+  }
+  */
+
+  
 
   ngOnDestroy(){
     this.actionSub.unsubscribe();
   }
+
+  
 
 }

@@ -3,7 +3,7 @@
         <div class="col-sm-4">
             <div class="d-flex justify-content-around">
                 <div class="element">
-                    <img src="{{col.photoUrl}}" alt="photo Melle Rose" class="img-fluid shadow-sm" />
+                    <img src="{{col.photoUrl}}" class="img-fluid shadow-sm" />
                 </div>
             </div>
         </div>
@@ -18,15 +18,18 @@
                 <dt class="col-sm-5">Date de naissance:</dt>
                 <dd class="col-sm-7">{{col.dateDeNaissance | date: 'dd/MM/yyyy'}}</dd>
                 <dt class="col-sm-5">Email:</dt>
+                
                 <div *ngIf="modeEdition; else elseBlock2">
-                    <input type="text" class="form-control">
+                    
                 </div>
                 <ng-template #elseBlock2>
                     <dd class="col-sm-7">{{col.email}}</dd>
                 </ng-template>
+                
                 <dt class="col-sm-5">Photo URL:</dt>
                 <div *ngIf="modeEdition; else elseBlock3">
-                    <input type="text" class="form-control">
+                        <app-form [matricule]="col.matricule"></app-form>
+
                 </div>
                 <ng-template #elseBlock3>
                     <dd class="col-sm-7">{{col.photoUrl}}</dd>
@@ -45,7 +48,7 @@
                 <ng-template #elseBlock>
                     <div class="row">
                         <div class="col-sm-7">
-                            <a href="#" (click)="editer()">Créer un nouveau collaborateur</a>
+                            <a href="#" (click)="creer()">Créer un nouveau collaborateur</a>
                         </div>
                         <div class="col-sm-5">
                             <button (click)="editer()" class="btn btn-info">Modifier</button>

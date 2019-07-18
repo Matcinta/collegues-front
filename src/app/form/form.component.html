@@ -1,0 +1,13 @@
+<form (ngSubmit)="submit()">
+    <label>Email</label>
+    <input type="text" name="email" [(ngModel)]="col.email" #email= "ngModel" required class="form-control">
+    <p *ngIf="email.dirty && email.invalid">L'email est invalide</p>
+
+    <label>Photo Url</label>
+    <input type="text" name="photoUrl" [(ngModel)]="col.photoUrl" #photoUrl= "ngModel" required minlength="7" class="form-control">
+    <p *ngIf="photoUrl.dirty && photoUrl.invalid">L'adresse url de la photo est invalide</p>
+
+    {{ col | json}}
+
+    <button type="submit" class="btn btn-info">Valider</button>
+</form>

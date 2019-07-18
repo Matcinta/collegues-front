@@ -5,7 +5,7 @@
             Recherche par nom
         </div>
         <div class="col-sm-4">
-            <input #saisie type="search" class="form-control" placeholder="Saisir le nom d'un collègue">
+            <input #saisie type="text" class="form-control" value="DUPONT" placeholder="Saisir le nom d'un collègue">
         </div>
         <div class="col-sm-4">
             <button (click)="rechercher(saisie.value)" class="btn btn-info">Rechercher</button>
