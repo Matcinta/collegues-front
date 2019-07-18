@@ -46,6 +46,7 @@ modifierCollegue(matricule:string, email:string, photoUrl: string) : Observable<
   );
 }
 
+// add a new collegue to the database
 ajouterCollegue(nom: string, prenom: string, email: string, dateDeNaissance: Date, photoUrl: string) : Observable<Collegue>{
   return this.httpClient
   .post<Collegue>(this.URL_BACKEND+'/collegue/', 

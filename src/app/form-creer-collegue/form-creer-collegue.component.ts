@@ -17,6 +17,9 @@ export class FormCreerCollegueComponent implements OnInit {
   @Input()
   col: Collegue = new Collegue();
 
+  errorMessage: string;
+  errorStatus: number;
+
   @Output() annuler = new EventEmitter<boolean>();
 
   clickAnnuler(){
@@ -26,7 +29,17 @@ export class FormCreerCollegueComponent implements OnInit {
 
   submit(){
   this.srv.ajouterCollegue(this.col.nom, this.col.prenom, this.col.email, this.col.dateDeNaissance, this.col.photoUrl)
-    .subscribe(collegue => this.srv.publier(collegue))
+    .subscribe(collegue => this.srv.publier(collegue),
+    error => {console.log(error.error);
+    if (error.status === 400){
+      this.errorMessage = error.error;
+      this.errorStatus = error.status;
+
+    }
+
+    }
+    
+    )
   }
 
 }
