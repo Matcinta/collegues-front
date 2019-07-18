@@ -5,15 +5,18 @@
             Recherche par nom
         </div>
         <div class="col-sm-4">
-            <input #saisie type="text" class="form-control" value="DUPONT" placeholder="Saisir le nom d'un collègue">
+            <input #saisie type="text" class="form-control" placeholder="Saisir le nom d'un collègue">
         </div>
         <div class="col-sm-4">
             <button (click)="rechercher(saisie.value)" class="btn btn-info">Rechercher</button>
         </div>
         <div *ngIf="matricules.length>0">
-            <ul>
-                <li (click)="getCollegue(matricule)" *ngFor="let matricule of matricules">{{matricule}}</li>
-            </ul>
+            <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action" (click)="getCollegue(matricule)" *ngFor="let matricule of matricules">{{matricule}}</a>
+                
+                    
+
+            </div>
 
         </div>
 

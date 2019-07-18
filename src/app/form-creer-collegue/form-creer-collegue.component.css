@@ -1,0 +1,13 @@
+input.ng-dirty.ng-invalid {
+    border-color: rgb(241, 110, 110);
+    border-width: 0.15em;
+}
+
+input.ng-dirty{
+    border-color: rgb(66, 218, 66);
+    border-width: 0.15em;
+}
+
+p {
+    color: red;
+}
