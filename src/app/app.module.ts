@@ -8,6 +8,7 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-par-nom/app-recherche-collegue-par-nom.component';
 import { FormComponent } from './form/form.component';
 import { FormCreerCollegueComponent } from './form-creer-collegue/form-creer-collegue.component';
+import { UrlValidatorDirective } from './validators/url-validator.directive';
 
 
 
@@ -18,6 +19,7 @@ import { FormCreerCollegueComponent } from './form-creer-collegue/form-creer-col
     AppRechercheCollegueParNomComponent,
     FormComponent,
     FormCreerCollegueComponent,
+    UrlValidatorDirective,
    
   ],
   imports: [

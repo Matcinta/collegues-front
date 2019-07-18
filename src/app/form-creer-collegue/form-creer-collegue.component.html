@@ -33,7 +33,7 @@
 
         <dt class="col-sm-5">Photo URL:</dt>
         <dd class="col-sm-7">
-            <input type="url" name="photoUrl" [(ngModel)]="col.photoUrl" #photoUrl="ngModel" required minlength="7"
+            <input appUrlValidator type="url" name="photoUrl" [(ngModel)]="col.photoUrl" #photoUrl="ngModel" required minlength="7"
                 class="form-control" placeholder="http://example.com">
             <p *ngIf="photoUrl.dirty && photoUrl.invalid">L'adresse url de la photo est invalide</p>
         </dd>
