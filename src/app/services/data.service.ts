@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Collegue } from '../models/Collegue';
 import { HttpClient } from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -19,11 +19,15 @@ publier(unCollegue: Collegue){
    this.subCollegueSelectionne.next(unCollegue);
 }
 
+
 abonnement(): Observable<Collegue>{
    return this.subCollegueSelectionne.asObservable();
 }
 
-  
+getAllColleguePhotos(): Observable<Collegue[]>{
+  return this.httpClient
+  .get<Collegue[]>(this.URL_BACKEND+'/collegue/galerie');
+}
 
 rechercherParNom(nom:string): Observable<Collegue[]>  {
     return this.httpClient

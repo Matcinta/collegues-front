@@ -9,6 +9,11 @@ import { AppRechercheCollegueParNomComponent } from './app-recherche-collegue-pa
 import { FormComponent } from './form/form.component';
 import { FormCreerCollegueComponent } from './form-creer-collegue/form-creer-collegue.component';
 import { UrlValidatorDirective } from './validators/url-validator.directive';
+import { GalerieComponent } from './galerie/galerie.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { RouterModule} from '@angular/router';
+import { ROUTES } from './app.routes';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 
@@ -20,13 +25,17 @@ import { UrlValidatorDirective } from './validators/url-validator.directive';
     FormComponent,
     FormCreerCollegueComponent,
     UrlValidatorDirective,
+    GalerieComponent,
+    AproposComponent,
+    AccueilComponent,
    
   ],
   imports: [
     BrowserModule,
     NgbModule, 
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
