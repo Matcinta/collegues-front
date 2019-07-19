@@ -14,6 +14,7 @@ import { AproposComponent } from './apropos/apropos.component';
 import { RouterModule} from '@angular/router';
 import { ROUTES } from './app.routes';
 import { AccueilComponent } from './accueil/accueil.component';
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 
 
 
@@ -28,6 +29,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     GalerieComponent,
     AproposComponent,
     AccueilComponent,
+    DetailCollegueComponent,
    
   ],
   imports: [

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Collegue } from '../models/Collegue';
 
 @Component({
   selector: 'app-galerie',
@@ -9,16 +8,21 @@ import { Collegue } from '../models/Collegue';
 })
 export class GalerieComponent implements OnInit {
 
-  constructor(private srv: DataService) { }
 
-  @Input()
-  col: Collegue;
+  constructor(private srv: DataService) {
+
+  }
+
   collegues = [];
 
   ngOnInit() {
     this.srv.getAllColleguePhotos()
-    .subscribe(collegues => this.collegues = collegues);
+      .subscribe(collegues => this.collegues = collegues);
+
   }
+
+
+
 
 
 }
