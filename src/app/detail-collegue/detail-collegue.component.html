@@ -37,18 +37,27 @@
             <dd class="col-md-4"><button (click)="addComment()" [disabled]="newComment" class=" btn btn-info">
                     Ajouter une note
                 </button></dd>
-        
-        
-        
-
     </div>
 
-    <div *ngIf="comments.length>0; else noComments">
-        <h4>Liste des notes :</h4>
-        <ul>
-            <li *ngFor="let c of comments" class="list-group-item list-group-item-info">{{c.date}} : {{c.message}}</li>
-        </ul>
+   <div class="row justify-content-lg-center">
+        <div class="col col-lg-3"></div>
+        <div class="col-lg-8">
+            <div *ngIf="comments.length>0; else noComments">
+                <h4 class="my-4 mx-4">Liste des notes :</h4>
+                <ul class="col-lg-8 list-group">
+                    <li *ngFor="let c of comments"
+                        class="list-group-item d-flex justify-content-between align-items-center">
+                        {{c.message}}
+                        <span class="badge badge-secondary badge-pill">{{c.date | date: 'HH:mm:ss'}}</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col col-lg-1"></div>
     </div>
+
+
     <ng-template #noComments>
         <p class="text-center">Aucune note pour ce collègue</p>
     </ng-template>
