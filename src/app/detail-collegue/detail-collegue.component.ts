@@ -14,7 +14,7 @@ export class DetailCollegueComponent implements OnInit {
 
   col: Collegue = new Collegue();
   matricule: string;
-  comments=[];
+  comments=this.srv.getAllComments();
   comment: Comment = new Comment();
   newComment = false;
 
@@ -33,12 +33,10 @@ export class DetailCollegueComponent implements OnInit {
 
   addComment(){
     if(this.comment.message != ''){
-      this.comment.id= this.comments.length+1;
-      this.comments.push({
-        id:this.comment.id,
-        message:this.comment.message}
-        );
-        this.comment.message='';
+      this.srv.addComment({
+        message: this.comment.message});
+      this.comments=this.srv.getAllComments();
+      this.comment.message='';
     }
   }
   

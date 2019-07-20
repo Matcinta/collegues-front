@@ -9,6 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class DataService {
  URL_BACKEND = environment.backendUrl;
+ comments=[];
  
 constructor(private httpClient: HttpClient) { }
 
@@ -62,6 +63,15 @@ ajouterCollegue(nom: string, prenom: string, email: string, dateDeNaissance: Dat
     "photoUrl": photoUrl
   }
   );
+}
+
+addComment(c){
+  c.date= new Date();
+  this.comments.push(c);
+}
+
+getAllComments(){
+  return this.comments;
 }
 
 }
