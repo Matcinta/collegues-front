@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
 export class DataService {
  URL_BACKEND = environment.backendUrl;
  coms: string[] = [];
+ comments=[];
  
 constructor(private httpClient: HttpClient) { }
 
@@ -75,5 +76,13 @@ authentifyUser(email: string, password: string): Observable<Collegue>{
   
   );
   }
+addComment(c){
+  c.date= new Date();
+  this.comments.push(c);
+}
+
+getAllComments(){
+  return this.comments;
+}
 
 }

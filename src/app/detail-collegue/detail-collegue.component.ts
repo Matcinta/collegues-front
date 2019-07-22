@@ -2,12 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Collegue } from '../models/Collegue';
+import {Comment} from '../models/Comment';
 
 @Component({
   selector: 'app-detail-collegue',
   templateUrl: './detail-collegue.component.html',
   styleUrls: ['./detail-collegue.component.css']
 })
+
 export class DetailCollegueComponent implements OnInit {
 
   col: Collegue = new Collegue();
@@ -15,6 +17,9 @@ export class DetailCollegueComponent implements OnInit {
   texteService: string[] = [];
 
   @Output() texteSaisiEvt: EventEmitter<string> = new EventEmitter();
+  comments=this.srv.getAllComments();
+  comment: Comment = new Comment();
+  newComment = false;
 
   constructor(private srv: DataService, private route: ActivatedRoute) {
 
@@ -39,6 +44,14 @@ export class DetailCollegueComponent implements OnInit {
     saisieTexte.focus();
   }
 
+  addComment(){
+    if(this.comment.message != ''){
+      this.srv.addComment({
+        message: this.comment.message});
+      this.comments=this.srv.getAllComments();
+      this.comment.message='';
+    }
+  }
   
     
 
