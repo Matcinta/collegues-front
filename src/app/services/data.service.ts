@@ -9,6 +9,7 @@ import {environment} from '../../environments/environment';
 })
 export class DataService {
  URL_BACKEND = environment.backendUrl;
+ coms: string[] = [];
  
 constructor(private httpClient: HttpClient) { }
 
@@ -63,5 +64,16 @@ ajouterCollegue(nom: string, prenom: string, email: string, dateDeNaissance: Dat
   }
   );
 }
+
+authentifyUser(email: string, password: string): Observable<Collegue>{
+  return this.httpClient
+  .post<Collegue>(this.URL_BACKEND+'/auth',
+  {
+    "email": email,
+    "motDePasse": password
+  }
+  
+  );
+  }
 
 }

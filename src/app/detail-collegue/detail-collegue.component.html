@@ -27,7 +27,27 @@
                 <dt class="col-sm-5">Photo URL:</dt>
                 <dd class="col-sm-7">{{col.photoUrl}}</dd>
             </dl>
+            <dl class="row">
+                <dt class="col-sm-5"></dt>
+                <dd class="col-sm-7"><button routerLink="/galerie" class=" btn btn-info">Retour à la galerie</button>
+                </dd>
+            </dl>
         </div>
-        <button routerLink="/galerie" class=" btn btn-info">Retour à la galerie</button>
+    </div>
+
+
+    <div class="row card-body">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Notes</span>
+            </div>
+            <textarea #saisieTexte class="form-control" aria-label="With textarea"></textarea>
+            <button (click)="validerTexte(saisieTexte)" class=" btn btn-info">Enregistrer la note</button>
+
+            <ul>
+                <li *ngFor="let com of recupComs()">{{com}}</li>
+            </ul>
+        </div>
+
     </div>
 </div>

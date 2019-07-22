@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Collegue } from '../models/Collegue';
@@ -10,8 +10,11 @@ import { Collegue } from '../models/Collegue';
 })
 export class DetailCollegueComponent implements OnInit {
 
-  col: Collegue;
+  col: Collegue = new Collegue();
   matricule: string;
+  texteService: string[] = [];
+
+  @Output() texteSaisiEvt: EventEmitter<string> = new EventEmitter();
 
   constructor(private srv: DataService, private route: ActivatedRoute) {
 
@@ -24,6 +27,16 @@ export class DetailCollegueComponent implements OnInit {
       .subscribe(collegue => this.col = collegue);
     });
     
+  }
+
+  recupComs() {
+    return [...this.srv.coms];
+  }
+
+  validerTexte(saisieTexte: HTMLInputElement) {
+    this.texteSaisiEvt.emit(saisieTexte.value);
+    saisieTexte.value = '';
+    saisieTexte.focus();
   }
 
   

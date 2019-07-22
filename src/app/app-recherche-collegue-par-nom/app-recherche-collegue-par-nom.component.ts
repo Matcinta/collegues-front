@@ -17,6 +17,9 @@ export class AppRechercheCollegueParNomComponent implements OnInit {
   
   }
 
+  ngOnInit() {
+  }
+
   search: boolean = false;
   editer(){
     this.search = !this.search;
@@ -31,7 +34,6 @@ getCollegue(matricule:string){
   this.srv.rechercherParMatricule(matricule)
   .subscribe(collegue => this.srv.publier(collegue));
 }
-  ngOnInit() {
-  }
+  
 
 }
