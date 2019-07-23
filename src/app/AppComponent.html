@@ -3,8 +3,8 @@
         <a class="nav-item nav-link" routerLink="/accueil" routerLinkActive="active">Accueil</a>
         <a class="nav-item nav-link" routerLink="/galerie" routerLinkActive="active">Galerie</a>
         <a class="nav-item nav-link" routerLink="/apropos" routerLinkActive="active">A propos</a>
-        <a class="nav-item nav-link" routerLink="/loggin" routerLinkActive="active">Se connecter</a>
-        <a  class="nav-item nav-link" routerLink="/accueil" routerLinkActive="active">Se deconnecter</a>
+        <a class="nav-item nav-link" routerLink="/loggin" *ngIf="!connectedCol" routerLinkActive="active">Se connecter</a>
+        <a class="nav-item nav-link" routerLink="/accueil" *ngIf="connectedCol" routerLinkActive="active">Se deconnecter</a>
 
 </nav>
 

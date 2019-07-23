@@ -18,13 +18,12 @@ export class LogginComponent implements OnInit {
   }
 
   loggedIn(){
-    this.loggedInMode = !this.loggedInMode;
+    this.loggedInMode =   !this.loggedInMode;
   }
 
   connexion(email: string, password: string){
     this.srv.authentifyUser(email, password)
     .subscribe(()=> this.loggedInMode = true);
-    
   }
 
   

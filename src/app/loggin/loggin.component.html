@@ -1,3 +1,6 @@
+<a class="nav-item nav-link" routerLink="/loggin" routerLinkActive="active">Se connecter</a>
+    <a class="nav-item nav-link" routerLink="/accueil" routerLinkActive="active">Se deconnecter</a>
+
 <div class="card my-5 shadow-sm" style="height: 100%; background-color: rgba(0, 238, 255, 0.1);">
     <div class="row card-body ">
         <div class="d-flex flex-column col-md-4">
@@ -19,8 +22,6 @@
 
 
     </div>
-    <div class="row card-body text-center" *ngIf="loggedInMode">
-        <p>vous etes connecté</p>
-    </div>
+
 </div>
 <router-outlet></router-outlet>
