@@ -1,27 +1,4 @@
 
-<div class="card my-5 shadow-sm" style="height: 100%; background-color: rgba(0, 238, 255, 0.1);">
-    <div class="row card-body " *ngIf="!notIdentifiedMode">
-        <div class="d-flex flex-column col-md-4">
-    
-      <label for="exampleInputEmail1">Addresse mail</label>
-      <input #saisieEmail type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Saisir votre email">
-    </div>
-    <div class="d-flex flex-column col-md-4">
-      <label for="exampleInputPassword1">Mot de passe</label>
-      <input #saisiePassword type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
-    </div>
-    <div class="d-flex flex-column col-md-4">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Rester authentifié</label>
-        <button (click)="connexion(saisieEmail.value, saisiePassword.value)" class="btn btn-info">Connexion</button>
-    </div>
-    
- 
-  </div>
-  </div>
-
-
-  <div *ngIf="notIdentifiedMode">
 <h1 class="text-center mt-3 mb-5">Administration Collègues</h1>
 <div class="card mb-4 shadow-sm" style="height: 100%; background-color: rgba(0, 238, 255, 0.1);">
     <div class="row card-body">
@@ -35,5 +12,5 @@
         </div>
     </div>
 </div>
-</div>
+
 

@@ -5,7 +5,7 @@
 
             <div class="card border-info mb-3 text-center" style="max-width: 18rem;" *ngFor="let collegue of collegues">
                 <a class="nav-item nav-link" routerLink="/galerie/{{collegue.matricule}}">
-                    <div class="card-header text-center">Matricule: {{collegue.matricule}}</div>
+                    <div class="card-header text-center"><h4> {{collegue.matricule}}</h4> </div>
                     <div class="card-body text-info text-center">
                         <h5 class="card-title">{{collegue.nom}} {{collegue.prenom}}</h5>
                         <p class="card-text"><a> <img src="{{collegue.photoUrl}}" width="200" height="200"></a></p>

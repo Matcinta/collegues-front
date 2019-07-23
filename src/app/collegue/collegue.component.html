@@ -42,16 +42,14 @@
 
             </div>
 
-            <div *ngIf="!modeEdition && !modeCreation">
+            <div *ngIf="!modeEdition">
                 <div class="row">
                     <div class="col-sm-7">
                         <a class="lien" (click)="creer()">Créer un nouveau collaborateur</a>
 
                     </div>
                     <div class="col-sm-5">
-                        <button class="btn btn-info">Modifier
-                            <a class="nav-item nav-link" routerLink="/galerie"></a>
-                            </button>
+                        <button (click)="editer()" class="btn btn-info">Modifier</button>
                     </div>
 
                 </div>

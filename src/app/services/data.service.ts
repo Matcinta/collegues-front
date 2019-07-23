@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Collegue } from '../models/Collegue';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
+
  URL_BACKEND = environment.backendUrl;
- coms: string[] = [];
- comments=[];
+ comments: string[] =[];
  
 constructor(private httpClient: HttpClient) { }
 
@@ -28,17 +29,23 @@ abonnement(): Observable<Collegue>{
 
 getAllColleguePhotos(): Observable<Collegue[]>{
   return this.httpClient
-  .get<Collegue[]>(this.URL_BACKEND+'/collegue/galerie');
+  .get<Collegue[]>(this.URL_BACKEND+'/collegue/galerie', {
+    withCredentials: true
+  });
 }
 
 rechercherParNom(nom:string): Observable<Collegue[]>  {
     return this.httpClient
-    .get<Collegue[]>(this.URL_BACKEND+'/collegue?nom='+nom);
+    .get<Collegue[]>(this.URL_BACKEND+'/collegue?nom='+nom, {
+      withCredentials: true
+    });
 }
 
 rechercherParMatricule(matricule:string): Observable<Collegue>  {
   return this.httpClient
-  .get<Collegue>(this.URL_BACKEND+'/collegue/'+matricule);
+  .get<Collegue>(this.URL_BACKEND+'/collegue/'+matricule, {
+    withCredentials: true
+  });
 }
 
 modifierCollegue(matricule:string, email:string, photoUrl: string) : Observable<Collegue>{
@@ -48,6 +55,8 @@ modifierCollegue(matricule:string, email:string, photoUrl: string) : Observable<
     "email": email,
     "photoUrl" : photoUrl
     
+  }, {
+    withCredentials: true
   }
   );
 }
@@ -62,20 +71,12 @@ ajouterCollegue(nom: string, prenom: string, email: string, dateDeNaissance: Dat
     "email": email,
     "dateDeNaissance": dateDeNaissance,
     "photoUrl": photoUrl
+  }, {
+    withCredentials: true
   }
   );
 }
 
-authentifyUser(email: string, password: string): Observable<Collegue>{
-  return this.httpClient
-  .post<Collegue>(this.URL_BACKEND+'/auth',
-  {
-    "email": email,
-    "motDePasse": password
-  }
-  
-  );
-  }
 addComment(c){
   c.date= new Date();
   this.comments.push(c);
@@ -83,6 +84,6 @@ addComment(c){
 
 getAllComments(){
   return this.comments;
-}
 
+}
 }

@@ -8,21 +8,13 @@ import { DataService } from '../services/data.service';
 })
 export class AccueilComponent implements OnInit {
 
-  notIdentifiedMode: boolean = false;
+
 
   constructor(private srv: DataService) { }
 
   ngOnInit() {
-    this.notIdentifiedMode = false;
+   
   }
 
-  notConnected() {
-    this.notIdentifiedMode = !this.notIdentifiedMode;
-  }
-
-  connexion(email: string, password: string){
-    this.srv.authentifyUser(email, password)
-    .subscribe(()=> this.notIdentifiedMode= true);
-    
-  }
+  
 }

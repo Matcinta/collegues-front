@@ -15,6 +15,8 @@ import { RouterModule} from '@angular/router';
 import { ROUTES } from './app.routes';
 import { AccueilComponent } from './accueil/accueil.component';
 import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
+import { LogginComponent } from './loggin/loggin.component';
+import { DataService } from './services/data.service';
 
 
 
@@ -30,6 +32,7 @@ import { DetailCollegueComponent } from './detail-collegue/detail-collegue.compo
     AproposComponent,
     AccueilComponent,
     DetailCollegueComponent,
+    LogginComponent,
    
   ],
   imports: [
@@ -39,7 +42,7 @@ import { DetailCollegueComponent } from './detail-collegue/detail-collegue.compo
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
