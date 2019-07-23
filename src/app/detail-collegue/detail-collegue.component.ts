@@ -35,7 +35,7 @@ export class DetailCollegueComponent implements OnInit {
   }
 
   recupComs() {
-    return [...this.srv.coms];
+    return [...this.srv.comments];
   }
 
   validerTexte(saisieTexte: HTMLInputElement) {

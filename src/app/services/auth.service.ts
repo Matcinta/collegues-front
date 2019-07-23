@@ -15,6 +15,8 @@ export class AuthService {
   URL_BACKEND = environment.backendUrl;
   subCollegueConnecte = new Subject<Collegue>();
   private connected = false;
+
+  constructor(private httpClient: HttpClient, private router: Router) { }
   
   isConnected(): Observable<boolean> {
     return of(this.connected)
@@ -38,7 +40,7 @@ export class AuthService {
     );
   }
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  
 
 
   publier(user: Collegue) {
@@ -71,6 +73,11 @@ export class AuthService {
 
 
   logout() {
+    return this.httpClient
+    .post(this.URL_BACKEND + '/logout', {},
+    {
+      withCredentials: true
+    }).subscribe(()=> {this.connected = false; this.subCollegueConnecte.next(null);});
     
   }
 }

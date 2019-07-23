@@ -10,8 +10,10 @@ export class ConnexionGuard implements CanActivate  {
   constructor(private router: Router, private authService: AuthService) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    
-return this.authService.isConnected();
+    if(!this.authService.isConnected()){
+      this.router.navigate(['/login']);
+    }
+    return this.authService.isConnected();
   }
 }
   
